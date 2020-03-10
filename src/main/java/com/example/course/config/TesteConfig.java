@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
+import com.example.course.entities.enums.OrderStatus;
 import com.example.course.entities.Order;
 import com.example.course.entities.User;
+
 import com.example.course.repositories.OrderRepository;
 import com.example.course.repositories.UserRepository;
 
@@ -29,7 +30,7 @@ public class TesteConfig implements CommandLineRunner {
 	
 		User user1 = new User(null, "Kaio", "kaio@gmail.com", "87878787", "12345");
 		
-		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), user1);
+		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"),OrderStatus.CANCELED, user1);
 
 		
 		userRepository.saveAll(Arrays.asList(user1));
