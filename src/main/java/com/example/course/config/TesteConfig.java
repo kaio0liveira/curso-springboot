@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.example.course.entities.Category;
 import com.example.course.entities.Order;
+import com.example.course.entities.OrderItem;
 import com.example.course.entities.Product;
 import com.example.course.entities.User;
 import com.example.course.entities.enums.OrderStatus;
 import com.example.course.repositories.CategoryRepository;
+import com.example.course.repositories.OrderItemRepository;
 import com.example.course.repositories.OrderRepository;
 import com.example.course.repositories.ProductRepository;
 import com.example.course.repositories.UserRepository;
@@ -34,6 +36,9 @@ public class TesteConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -69,6 +74,14 @@ public class TesteConfig implements CommandLineRunner {
 			
 		userRepository.saveAll(Arrays.asList(user1));
 		orderRepository.saveAll(Arrays.asList(o1));
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+		
+		orderItemRepository.saveAll(Arrays.asList(oi1,oi2));
+		
+		
+		
 	}
 	
 	
