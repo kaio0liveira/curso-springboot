@@ -2,10 +2,12 @@ package com.example.course.entities.pk;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.example.course.entities.Order;
+
 import com.example.course.entities.Product;
 
 @Embeddable
@@ -34,6 +36,8 @@ public class OrderItemPK implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
